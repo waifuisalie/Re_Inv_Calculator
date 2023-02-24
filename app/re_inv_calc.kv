@@ -1,0 +1,110 @@
+<MyLayout>
+    BoxLayout:
+        orientation: 'vertical'
+        size: root.width, root.height
+
+        Label:
+            text: "Fixed Return Dividends Calculator"
+            size_hint: (1, .005)
+            color: (0, 1, 1, 1)
+
+        GridLayout:
+            rows: 6
+            cols: 2
+            size_hint: (1, .015)
+            #row 1
+            Label:
+                font_size: 11
+                text: 'Entry for the Investment:'
+                color: (1, 1, 1, 1)
+            TextInput:
+                id: entry_input
+                background_color: (0.3, 0.3, 0.3, 1)
+                foreground_color: (1, 1, .5, 1)
+            
+
+            #row 2
+            Label:
+                font_size: 11
+                text: 'Return per Month (percentage):'
+                color: (1, 1, 1, 1)
+            TextInput: 
+                id: return_per_month_input
+                background_color: (0.3, 0.3, 0.3, 1)
+                foreground_color: (1, 1, .5, 1)
+            
+
+            #row 3
+            Label:
+                font_size: 11
+                text: 'For how many months?'
+                color: (1, 1, 1, 1)
+            TextInput:
+                id: n_months_input
+                background_color: (0.3, 0.3, 0.3, 1)
+                foreground_color: (1, 1, .5, 1)
+         
+
+            #row 4
+            Label:
+                font_size: 11
+                text: 'How much will you add every month?'
+                color: (1, 1, 1, 1)
+            TextInput:      
+                id: reccurence_inv_input
+                background_color: (0.3, 0.3, 0.3, 1)
+                foreground_color: (1, 1, .5, 1)
+        
+
+            #row 5
+            Label:
+                font_size: 11
+                text: 'Whats the targeted passive income?'
+                color: (1, 1, 1, 1)
+            TextInput:    
+                id: target_passive_income_input
+                background_color: (0.3, 0.3, 0.3, 1)
+                foreground_color: (1, 1, .5, 1)
+            
+        
+        Button:
+            text: 'Calculate'
+            size_hint: (1, 0.005)
+            on_release: root.pls_open()
+        
+<MyPopup@Popup>
+    title: 'Results'
+    size_hint: 1, 0.8
+    auto_dismiss: True
+    BoxLayout:
+        orientation: 'vertical'
+
+        Label:
+            text: "Re-Investing:"
+            color: (1.0, 0.0, 1.0, 1.0)
+    
+        Label:
+            markup: True
+            id: popup_label_re_inv
+        
+        Label:
+            text: "No Re-Investing:"
+            color: (1.0, 0.0, 1.0, 1.0)
+    
+        Label:
+            markup: True
+            id: popup_label_no_re_inv
+        
+        Label:
+            text: 'Differences:'
+            color: (1.0, 0.0, 1.0, 1.0)
+        Label:
+            markup: True
+            id: diff
+
+    
+
+        Button:
+            size_hint: 1, 0.6
+            text: 'Close'
+            on_release: root.dismiss()
